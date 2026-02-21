@@ -1,0 +1,19 @@
+(.using [library/lux (.except [when let])
+         [library/lux/math (.only [cos sin])]])
+
+(the (-> Decimal Decimal)
+  (function (square x)
+    (* x x)))
+
+(the (-> (List Natural) Natural)
+  (function (total xs)
+    (list#mix
+     (function (_ acc x) (+ acc x))
+     0
+     xs)))
+
+(comment "example of pattern matching")
+(when (is x {#Some value})
+  (exec
+    (io (message "got value"))
+    value))

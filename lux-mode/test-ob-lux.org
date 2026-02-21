@@ -1,0 +1,56 @@
+#+title: ob-lux integration test
+
+* Lux structural analysis
+
+#+begin_src lux :eval lint
+(.using [library/lux])
+
+(the (-> Natural Natural Natural)
+  (function (add x y)
+    (+ x y)))
+#+end_src
+
+#+RESULTS:
+: Package cl is deprecated
+: lux-mode.el: Warning: ‘destructuring-bind’ is an obsolete alias (as of 27.1); use ‘cl-destructuring-bind’ instead.
+: Loading ‘lux-mode’: unescaped character literals ‘?)’, ‘?[’ detected, ‘?\)’, ‘?\[’ expected!
+: OK: parens balanced
+: forms: 2
+: lines: 5
+
+* Lux fontification
+
+#+begin_src lux :eval fontify
+(the (-> Decimal Decimal)
+  (function (square x)
+    (* x x)))
+#+end_src
+
+#+RESULTS:
+: Package cl is deprecated
+: lux-mode.el: Warning: ‘destructuring-bind’ is an obsolete alias (as of 27.1); use ‘cl-destructuring-bind’ instead.
+: Loading ‘lux-mode’: unescaped character literals ‘?)’, ‘?[’ detected, ‘?\)’, ‘?\[’ expected!
+: 1:1 font-lock-builtin-face the
+: 1:6 font-lock-builtin-face ->
+: 1:8 font-lock-type-face  Decimal Decimal
+: 2:3 font-lock-builtin-face function
+
+* Lux indentation
+
+#+begin_src lux :eval indent
+(when (is x {#Some value})
+(exec
+(io (message "hello"))
+value))
+#+end_src
+
+#+RESULTS:
+: Package cl is deprecated
+: lux-mode.el: Warning: ‘destructuring-bind’ is an obsolete alias (as of 27.1); use ‘cl-destructuring-bind’ instead.
+: Loading ‘lux-mode’: unescaped character literals ‘?)’, ‘?[’ detected, ‘?\)’, ‘?\[’ expected!
+: Indenting region... 
+: Indenting region...done
+: (when (is x {#Some value})
+:       (exec
+:        (io (message "hello"))
+:        value))
