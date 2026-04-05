@@ -1,11 +1,11 @@
-# Magic ToDo Org (Local MLX)
+# Magic World Org (Local MLX)
 
-Terminal + Emacs Org-mode clone of goblin.tools "Magic ToDo", running locally on Apple Silicon using MLX.
+Terminal + Emacs Org-mode clone of goblin.tools "Magic World", running locally on Apple Silicon using MLX.
 
 ## Contents
 
-- `scripts/magic_todo_mlx.py`: CLI that generates a task breakdown using an MLX-LM model.
-- `emacs/magic-todo-org.el`: Emacs integration for inserting and refreshing checklists in Org headings.
+- `scripts/magic_world_mlx.py`: CLI that generates a task breakdown using an MLX-LM model.
+- `emacs/magic-world-org.el`: Emacs integration for inserting and refreshing checklists in Org headings.
 
 ## Requirements
 
@@ -17,11 +17,11 @@ Terminal + Emacs Org-mode clone of goblin.tools "Magic ToDo", running locally on
 ## CLI Usage
 
 ```bash
-python scripts/magic_todo_mlx.py --list-models
+python scripts/magic_world_mlx.py --list-models
 
-python scripts/magic_todo_mlx.py --spice 3 "delete extra key in tailscale"
+python scripts/magic_world_mlx.py --spice 3 "delete extra key in tailscale"
 
-echo "phone calling bot to call for quote" | python scripts/magic_todo_mlx.py --format md --spice 4
+echo "phone calling bot to call for quote" | python scripts/magic_world_mlx.py --format md --spice 4
 ```
 
 ## Emacs Setup
@@ -30,15 +30,15 @@ Add to `~/.emacs.d/init.el`:
 
 ```elisp
 (require 'transient)
-(add-to-list 'load-path "/ABS/PATH/TO/magic-todo-org/emacs")
-(require 'magic-todo-org)
+(add-to-list 'load-path "/ABS/PATH/TO/magic-world-org/emacs")
+(require 'magic-world-org)
 ```
 
 ### Commands
 
-- `M-x magic-todo-org-insert`
+- `M-x magic-world-org-insert`
   - Prompts for task/spice/model, inserts a new heading + checklist.
-- `M-x magic-todo-org-refresh-at-point`
+- `M-x magic-world-org-refresh-at-point`
   - Regenerates checklist under current heading.
   - Stores/uses these properties on the heading:
     - `MAGIC_TODO_TASK`
